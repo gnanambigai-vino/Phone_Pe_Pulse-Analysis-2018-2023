@@ -10,10 +10,10 @@ from PIL import Image
 from git.repo.base import Repo
 
 
-#Repo.clone_from("https://github.com/PhonePe/pulse.git","C:/Users/GVJai/Desktop/Project/PhonePe/Data")
+#Repo.clone_from("https://github.com/PhonePe/pulse.git","/data")
 
 # SETTING PAGE CONFIGURATIONS
-icon = Image.open(r"C:\Users\GVJai\OneDrive\Desktop\Project\PhonePe\ICN.png")
+icon = Image.open(r"images\ICN.png")
 st.set_page_config(page_title= "Phonepe Pulse Data Visualization and Exploration",
                    page_icon= icon,
                    layout= "wide",
@@ -38,7 +38,7 @@ with st.sidebar:
                         "nav-link-selected": {"background-color": "#6F36AD"}})
 # MENU 1 - HOME
 if selected == "Home":
-    #st.image("img.png")
+   
     st.markdown("# :violet[Data Visualization and Exploration]")
     st.markdown("## :violet[A User-Friendly Tool Using Streamlit and Plotly]")
     col1,col2 = st.columns([3,2],gap="medium")
@@ -49,7 +49,7 @@ if selected == "Home":
         st.markdown("### :violet[Technologies used :] Github Cloning, Python, Pandas, MySQL, mysql-connector-python, Streamlit, and Plotly.")
         st.markdown("### :violet[Overview :] In this streamlit web app you can visualize the phonepe pulse data and gain lot of insights on transactions, number of users, top 10 state, district, pincode and which brand has most number of users and so on. Bar charts, Pie charts and Geo map visualization are used to get some insights.")
     with col2:
-        image = Image.open(r"C:\Users\GVJai\OneDrive\Desktop\Project\PhonePe\phone.png")
+        image = Image.open(r"images\phone.png")
         st.image(image, caption='Phonepe pulse THE BEAT OF PROGRESS', use_column_width=True)
 #Data visualization
 if selected == "Data Visualization":
