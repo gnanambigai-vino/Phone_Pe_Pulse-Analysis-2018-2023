@@ -75,13 +75,11 @@ if selected == "Data Visualization":
         )
 #Data visualization - TRANSACTIONS     
     if  Type == "Transaction":
-        tab1,tab2,tab3=st.tabs(["State Analysis","District Analysis","Pincode Analysis"])
-        #col1,col2,col3 = st.columns([1,1,1],gap="small")
-            
+        tab1,tab2,tab3=st.tabs(["State Analysis","District Analysis","Pincode Analysis"])    
         with tab1:
                 st.markdown("### :violet[State wise data]")
-                mysql_cursor.execute(f"select state,year, sum(Transaction_count) as Total_Transactions_Count, sum(Transaction_amount) as Total from agg_trans where year = {Year} and quarter = {Quarter} group by state,year order by Total desc limit 10")
-                df = pd.DataFrame(mysql_cursor.fetchall(), columns=['State', 'Year','Transactions_Count','Total_Amount'])
+                mysql_cursor.execute(f"select state, sum(Transaction_count) as Total_Transactions_Count, sum(Transaction_amount) as Total from agg_trans where year = {Year} and quarter = {Quarter} group by state,year order by Total desc limit 10")
+                df = pd.DataFrame(mysql_cursor.fetchall(), columns=['State','Transactions_Count','Total_Amount'])
                 fig = px.pie(df, values='Total_Amount',
                                 names='State',
                                 title='Top 10 State',
@@ -123,9 +121,7 @@ if selected == "Data Visualization":
             
 #Data visualization- USERS          
     if Type == "Users":
-        tab1,tab2,tab3,tab4=st.tabs(["Brand Analysis","District Analysis","Pincode Analysis","State Analysis"])
-        #col1,col2,col3,col4 = st.columns([2,2,2,2],gap="small")
-        
+        tab1,tab2,tab3,tab4=st.tabs(["Brand Analysis","District Analysis","Pincode Analysis","State Analysis"])  
         with tab1:
             st.markdown("### :violet[Brands]")
             if Year == 2023 and Quarter in [3,4]:
