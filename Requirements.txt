@@ -1,1 +1,10 @@
-
+pandas
+streamlit
+streamlit_option_menu
+pillow
+mysql-connector-python
+plotly-express
+os-sys
+plotly
+jsonlib
+gitrepo
